@@ -24,4 +24,4 @@ RUN set -ex \
     && apk add bash tzdata ca-certificates \
     && rm -rf /var/cache/apk/*
 COPY --from=builder /go/bin/sing-box /usr/local/bin/sing-box
-ENTRYPOINT ["sing-box"]
+ENTRYPOINT ["sing-box", "-D", "/var/lib/sing-box", "-C", "/etc/sing-box/", "run"]
